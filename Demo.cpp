@@ -171,82 +171,82 @@ int main()
         {0, 3, 0, 4},
         {1, 2, 4, 0}};
     g11.loadGraph(graph11);
-    Graph g12;
-vector<vector<int>> graph12 = {
-    {0, 3, 0},
-    {3, 0, 2},
-    {0, 2, 0}};
-g12.loadGraph(graph12);
-
-Graph g13;
-vector<vector<int>> graph13 = {
-    {2, 1, 3},
-    {1, 4, 1},
-    {3, 1, 5}};
-g13.loadGraph(graph13);
-
-Graph g14;
-vector<vector<int>> graph14 = {
-    {0, 4, 3, 2},
-    {4, 0, 2, 5},
-    {0, 2, 0, 4},
-    {3, 0, 4, 0}};
-g14.loadGraph(graph14);
-
-Graph g15;
-vector<vector<int>> graph15 = {
-    {3, 2},
-    {2, 5}};
-g15.loadGraph(graph15);
-
-Graph g16;
-vector<vector<int>> graph16 = {
-    {0, 0, 3},
-    {0, 0, 4},
-    {3, 4, 0}};
-g16.loadGraph(graph16);
-
-Graph g17;
-vector<vector<int>> graph17 = {
-    {0, 3, 2},
-    {3, 0, 0},
-    {2, 0, 0}};
-g17.loadGraph(graph17);
-
-Graph g18;
-vector<vector<int>> graph18 = {
-    {0, 4, 0},
-    {4, 0, 0},
-    {0, 0, 0}};
-g18.loadGraph(graph18);
-
-
-Graph g19;
-vector<vector<int>> graph19 = {
-    {0, 4, 2, 0},
-    {4, 0, 3, 0},
-    {2, 3, 0, 4},
-    {0, 0, 4, 0}};
-g19.loadGraph(graph19);
-
-Graph g20;
-vector<vector<int>> graph20 = {
-    {3, 0, 0, 2},
-    {0, 4, 2, 0},
-    {0, 2, 5, 0},
-    {2, 0, 0, 3}};
-g20.loadGraph(graph20);
-
-// Examples for testing the comparison operators
-cout << (g6 >= g7) << endl; // should return false
-cout << (g7 > g6) << endl; // should return true
-cout << (g11 == g7) << endl; // should return true
-cout << (g13 <= g12) << endl;// should return false
-cout << (g15 < g14) << endl; // should return true
-cout << (g15 < g16) << endl;  // should return true
-cout << (g17 <= g18) << endl;  // should return false
-cout << (g7!=g9) << endl;//should return true
-cout<<(g20==g19)<<endl;//should return false
-cout<<(g18!=g17)<<endl;//should return true
-}
+         Graph g12;
+     vector<vector<int>> graph12 = {
+         {0, 3, 0},
+         {3, 0, 2},
+         {0, 2, 0}};
+     g12.loadGraph(graph12);
+     
+     Graph g13;
+     vector<vector<int>> graph13 = {
+         {2, 1, 3},
+         {1, 4, 1},
+         {3, 1, 5}};
+     g13.loadGraph(graph13);
+     
+     Graph g14;
+     vector<vector<int>> graph14 = {
+         {0, 4, 3, 2},
+         {4, 0, 2, 5},
+         {0, 2, 0, 4},
+         {3, 0, 4, 0}};
+     g14.loadGraph(graph14);
+     
+     Graph g15;
+     vector<vector<int>> graph15 = {
+         {3, 2},
+         {2, 5}};
+     g15.loadGraph(graph15);
+     
+     Graph g16;
+     vector<vector<int>> graph16 = {
+         {0, 0, 3},
+         {0, 0, 4},
+         {3, 4, 0}};
+     g16.loadGraph(graph16);
+     
+     Graph g17;
+     vector<vector<int>> graph17 = {
+         {0, 3, 2},
+         {3, 0, 0},
+         {2, 0, 0}};
+     g17.loadGraph(graph17);
+     
+     Graph g18;
+     vector<vector<int>> graph18 = {
+         {0, 4, 0},
+         {4, 0, 0},
+         {0, 0, 0}};
+     g18.loadGraph(graph18);
+     
+     
+     Graph g19;
+     vector<vector<int>> graph19 = {
+         {0, 4, 2, 0},
+         {4, 0, 3, 0},
+         {2, 3, 0, 4},
+         {0, 0, 4, 0}};
+     g19.loadGraph(graph19);
+     
+     Graph g20;
+     vector<vector<int>> graph20 = {
+         {3, 0, 0, 2},
+         {0, 4, 2, 0},
+         {0, 2, 5, 0},
+         {2, 0, 0, 3}};
+     g20.loadGraph(graph20);
+     
+     // Examples for testing the comparison operators
+     cout << (g6 >= g7) << endl; // should return false
+     cout << (g7 > g6) << endl; // should return true
+     cout << (g11 == g7) << endl; // should return true
+     cout << (g13 <= g12) << endl;// should return false
+     cout << (g15 < g14) << endl; // should return true
+     cout << (g15 < g16) << endl;  // should return true
+     cout << (g17 <= g18) << endl;  // should return false
+     cout << (g7!=g9) << endl;//should return true
+     cout<<(g20==g19)<<endl;//should return false
+     cout<<(g18!=g17)<<endl;//should return true
+     }
 
