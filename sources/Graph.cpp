@@ -61,7 +61,6 @@ namespace ariel
      
     Graph Graph::operator+(const Graph &other) const
     {
-       
         if (this->size() != other.size())
         {
             throw std::invalid_argument("Graphs must be of the same size to add.");
@@ -78,9 +77,9 @@ namespace ariel
         }
         return g3;
     }
+
     Graph Graph::operator-(const Graph &other) const
     {
-        
         if (this->size() != other.size())
         {
             throw std::invalid_argument("Graphs must be of the same size to sub");
@@ -99,7 +98,6 @@ namespace ariel
     }
     Graph Graph::operator*(const Graph &other) const
     {
-
         int i = 0;
         if (this->size() != other.size())
         {
@@ -123,6 +121,7 @@ namespace ariel
 
         return g4;
     }
+
      std::ostream &operator<<(std::ostream &os, const Graph &graph)
     {
         std::vector<std::vector<int>> GraphMatrix = graph._graph;
@@ -137,33 +136,36 @@ namespace ariel
         }
         return os;
     }
+
     bool ariel::Graph::operator==(const Graph& other) const 
     {
         if (this->size() != other.size())
         {
             return false;
         }
-            std::size_t size = this->size();
-              for (std::size_t i = 0; i < size; ++i)
-    {
-        for (std::size_t j = 0; j < size; ++j)
-        {
-            if (this->_graph[i][j] != other._graph[i][j])
-            {
-                return false;
-            }
-        }
-    }
+         std::size_t size = this->size();
+         for (std::size_t i = 0; i < size; ++i)
+          {
+             for (std::size_t j = 0; j < size; ++j)
+               {
+                 if (this->_graph[i][j] != other._graph[i][j])
+                  {
+                    return false;
+                   }
+                }
+           }
 
-    return true;
+         return true;
 }
+
     bool ariel::Graph::operator!=(const Graph& other) const {
+        
         return !(*this==other);
     }
+
     //postfix g--
     ariel::Graph Graph ::operator--(int v)
       { 
-               
             std::size_t size = this->size();
 
                 ariel::Graph afterpostfix = *this;
@@ -178,6 +180,7 @@ namespace ariel
                 }
                 return afterpostfix;
             }
+
         //prefix --g
         ariel::Graph &Graph ::operator--()
         {
@@ -226,85 +229,88 @@ namespace ariel
             }
             return *this;
         }
- bool ariel::Graph::operator>(const Graph &other) const {
-
-    size_t size1 = this->_graph.size();
-    size_t size2 = other._graph.size();
-
-    // implementation that verifiy if this contains other
-    bool thisContainsOther = false;
-    if (size2 <= size1) {
-        bool OtherIsContained = true;
-        for (size_t i = 0; i < size2; ++i) {
-            for (size_t j = 0; j < size2; ++j) {
-                if (other._graph[i][j] && !this->_graph[i][j]) {
-                    OtherIsContained = false;
+     bool ariel::Graph::operator>(const Graph &other) const {
+    
+        size_t size1 = this->_graph.size();
+        size_t size2 = other._graph.size();
+    
+        // implementation that verifiy if this contains other
+        bool thisContainsOther = false;
+        if (size2 <= size1) {
+            bool OtherIsContained = true;
+            for (size_t i = 0; i < size2; ++i) {
+                for (size_t j = 0; j < size2; ++j) {
+                    if (other._graph[i][j] && !this->_graph[i][j]) {
+                        OtherIsContained = false;
+                        break;
+                    }
+                }
+                if (!OtherIsContained) {
                     break;
                 }
             }
-            if (!OtherIsContained) {
-                break;
-            }
+            thisContainsOther = OtherIsContained;
         }
-        thisContainsOther = OtherIsContained;
-    }
-
-    if (thisContainsOther) {
-        return true;
-    }
-
-    // implementation that verify if other contains this 
-    bool otherContainsThis = false;
-    if (size1 <= size2) {
-        bool ThisIsContained = true;
-        for (size_t i = 0; i < size1; ++i) {
-            for (size_t j = 0; j < size1; ++j) {
-                if (this->_graph[i][j] && !other._graph[i][j]) {
-                    ThisIsContained = false;
+    
+        if (thisContainsOther) {
+            return true;
+        }
+    
+        // implementation that verify if other contains this 
+        bool otherContainsThis = false;
+        if (size1 <= size2) {
+            bool ThisIsContained = true;
+            for (size_t i = 0; i < size1; ++i) {
+                for (size_t j = 0; j < size1; ++j) {
+                    if (this->_graph[i][j] && !other._graph[i][j]) {
+                        ThisIsContained = false;
+                        break;
+                    }
+                }
+                if (!ThisIsContained) {
                     break;
                 }
             }
-            if (!ThisIsContained) {
-                break;
-            }
+            otherContainsThis = ThisIsContained;
         }
-        otherContainsThis = ThisIsContained;
-    }
-     if (this->countEdges() != other.countEdges()) {
-       return this->countEdges() > other.countEdges();
+         if (this->countEdges() != other.countEdges()) {
+           return this->countEdges() > other.countEdges();
+        }
+    
+        if (otherContainsThis) {
+            return false;
+        }
+        return size2 < size1;
     }
 
-    if (otherContainsThis) {
-        return false;
+    bool ariel::Graph::operator>=(const Graph &other) const {
+        return (*this>other||*this==other);
     }
-    return size2 < size1;
-}
-bool ariel::Graph::operator>=(const Graph &other) const {
-    return (*this>other||*this==other);
-}
-bool ariel::Graph::operator<(const Graph &other) const {
-    return other>*this;
-}
-bool ariel::Graph::operator<=(const Graph &other) const {
-    return (*this<other||*this==other);
-}
-int Graph::countEdges()const {
-    size_t vertices = this->size();
-        size_t edges = 0;
-        for (size_t i = 0; i < vertices; i++)
-        {
-            for (size_t j = 0; j < vertices; j++)
+
+    bool ariel::Graph::operator<(const Graph &other) const {
+        return other>*this;
+    }
+
+    bool ariel::Graph::operator<=(const Graph &other) const {
+        return (*this<other||*this==other);
+    }
+    int Graph::countEdges()const {
+        size_t vertices = this->size();
+            size_t edges = 0;
+            for (size_t i = 0; i < vertices; i++)
             {
-                if (this->_graph[i][j] != 0)
+                for (size_t j = 0; j < vertices; j++)
                 {
-                    edges++;
+                    if (this->_graph[i][j] != 0)
+                    {
+                        edges++;
+                    }
                 }
             }
-        }
-        return edges;
-}
-
-}
-
+            return edges;
+    }
+    
+    }
     
         
+            
